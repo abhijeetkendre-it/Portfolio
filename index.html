@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijeet Kendre | Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        poppins: ['"Poppins"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* --- BACKGROUND ANIMATION --- */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.12), transparent 25%);
+            animation: backgroundShift 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) translate(2%, 2%); }
+            100% { transform: scale(1) translate(-2%, -2%); }
+        }
+
+        /* --- GLASS CARDS --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- NEW SOCIAL POPUP STYLES (INTEGRATED) --- */
+        .social-wrapper {
+            display: inline-flex;
+            list-style: none;
+            gap: 15px;
+            padding: 0;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .social-wrapper .icon {
+            position: relative;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 0;
+            width: 55px;
+            height: 55px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            color: #333; /* Default icon color */
+        }
+
+        .social-wrapper .tooltip {
+            position: absolute;
+            top: 0;
+            font-size: 14px;
+            background: #ffffff;
+            color: #ffffff;
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .social-wrapper .tooltip::before {
+            position: absolute;
+            content: "";
+            height: 8px;
+            width: 8px;
+            background: #ffffff;
+            bottom: -3px;
+            left: 50%;
+            transform: translate(-50%) rotate(45deg);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .social-wrapper .icon:hover .tooltip {
+            top: -50px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        /* Specific Social Colors & Gradients */
+        
+        /* Instagram */
+        .social-wrapper .instagram:hover,
+        .social-wrapper .instagram:hover .tooltip,
+        .social-wrapper .instagram:hover .tooltip::before {
+            background: #f09433; 
+            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            color: #ffffff;
+        }
+
+        /* LinkedIn */
+        .social-wrapper .linkedin:hover,
+        .social-wrapper .linkedin:hover .tooltip,
+        .social-wrapper .linkedin:hover .tooltip::before {
+            background: #0077b5;
+            color: #ffffff;
+        }
+
+        /* Gmail (Personal) */
+        .social-wrapper .email:hover,
+        .social-wrapper .email:hover .tooltip,
+        .social-wrapper .email:hover .tooltip::before {
+            background: #EA4335;
+            color: #ffffff;
+        }
+
+        /* College Email (using a greenish tone or dark grey) */
+        .social-wrapper .college:hover,
+        .social-wrapper .college:hover .tooltip,
+        .social-wrapper .college:hover .tooltip::before {
+            background: #10b981; /* Green for success/education */
+            color: #ffffff;
+        }
+
+        /* Phone */
+        .social-wrapper .phone:hover,
+        .social-wrapper .phone:hover .tooltip,
+        .social-wrapper .phone:hover .tooltip::before {
+            background: #25D366; /* WhatsApp/Phone Green */
+            color: #ffffff;
+        }
+
+        /* --- FORM STYLES --- */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        /* Custom select styling for dark mode */
+        select.glass-input option {
+            background: #0a0a0a;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+    <div class="bg-animated"></div>
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-black/50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-tighter">A <span class="text-accent">K</span></a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Work</a>
+                <a href="resume.pdf" class="hover:text-white transition-colors">CV</a>
+                <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                    Contact
+                </a>
+            </div>
+            <div class="md:hidden text-gray-400 hover:text-white cursor-pointer">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        
+        <section id="home" class="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-12">
+            <div class="md:w-3/5">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-8" data-aos="fade-down">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for Internships
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight" data-aos="fade-up" data-aos-delay="100">
+                    Abhijeet <br> <span class="text-gradient">Kendre</span>
+                </h1>
+                
+                <p class="text-gray-400 text-lg md:text-xl max-w-xl mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    B.Tech Engineering Student In Information Technology,<br>
+                    At M.G.M.'s College Of Engineering, Nanded.
+                </p>
+                
+                <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="resume.pdf" class="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download CV
+                    </a>
+                    <a href="#projects" class="px-6 py-3 glass-card text-white font-semibold rounded-lg hover:bg-white/10 transition-colors border border-white/10">
+                        View Work
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-2/5 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-white/10 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+                    <img src="1770917772212.jpeg" alt="Abhijeet Kendre" class="w-full h-full object-cover bg-gray-900" onerror="this.src='https://via.placeholder.com/400x400/111111/3b82f6?text=Abhi'">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Technical Stack</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core technologies and tools I work with.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+                <!-- Languages -->
+                <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-5 flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-accent"></i> Languages
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-code text-blue-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">C / C++</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-js text-yellow-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">JavaScript</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-html5 text-orange-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">HTML5</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-css3-alt text-blue-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">CSS3</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Frontend -->
+                <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-5 flex items-center gap-2">
+                        <i class="fa-solid fa-palette text-purple-400"></i> Frontend
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-wind text-cyan-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Tailwind CSS</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-pen-ruler text-pink-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">UI Design</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-robot text-purple-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">AI Tools</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Backend & Database -->
+                <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-5 flex items-center gap-2">
+                        <i class="fa-solid fa-server text-green-400"></i> Backend & DB
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-node-js text-green-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Node.js</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-gray-500/10 border border-gray-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-bolt text-gray-300"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Express.js</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-fire text-orange-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Firebase</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-leaf text-green-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">MongoDB</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="250">
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-5 flex items-center gap-2">
+                        <i class="fa-solid fa-wrench text-accent"></i> Tools
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-git-alt text-red-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Git</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-github text-white"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">GitHub</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-code text-blue-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">VS Code</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-globe text-purple-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">GitHub Pages</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-triangle-exclamation text-white"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Vercel</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Featured Work</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core projects and hackathon experiences.</p>
+          
+            <div class="grid grid-cols-1 gap-6">
+
+                <!-- ============================================================ -->
+                <!-- CARD 1: Visiotech – UI Design Using AI (Winner) -->
+                <!-- ============================================================ -->
+                <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -right-20 -top-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                        <div class="flex-1">
+                            <!-- Date -->
+                            <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 17th April 2026</p>
+                            <!-- Badge -->
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(234,179,8,0.25)] hover:shadow-[0_0_25px_rgba(234,179,8,0.4)] transition-shadow duration-300">
+                                <i class="fa-solid fa-trophy text-yellow-300 animate-pulse"></i>
+                                <span style="text-shadow: 0 0 8px rgba(234,179,8,0.5);">Winner at Visiotech 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">VISIOTECH 2026 : UI Design using AI</h3>
+                            <p class="text-gray-400 max-w-3xl mb-6">Designed modern and user-focused UI interfaces using AI tools, focusing on creativity, usability, and rapid prototyping.</p>
+                            <div class="flex flex-wrap items-center gap-2 text-sm mt-4">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">AI Tools</span>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('gallery', 'visiotech-ui')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>View Photos</span>
+                                <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                            <button onclick="openModal('certificate', 'visiotech-ui')" class="group px-5 py-2.5 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-yellow-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Certificate</span>
+                                <i class="fa-solid fa-award text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!-- CARD 2: Visiotech – Project Presentation (Participant) -->
+                <!-- ============================================================ -->
+                <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                    <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 16th April 2026</p>
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(59,130,246,0.2)] hover:shadow-[0_0_22px_rgba(59,130,246,0.35)] transition-shadow duration-300">
+                                <i class="fa-solid fa-person-chalkboard text-blue-300"></i>
+                                <span>Participate in Project Presentation</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">Innovative Project Showcase</h3>
+                            <p class="text-gray-400 max-w-3xl mb-6">Presented MediSync, an AI-powered healthcare solution focused on real-time patient monitoring, appointment handling, and patient-care efficiency.</p>
+                            <div class="flex flex-wrap items-center gap-2 text-sm mt-4">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">HTML</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Tailwind CSS</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">JavaScript</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Node.js</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Express.js</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Firebase</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Gemini AI</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">JWT</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Vercel</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('gallery', 'visiotech-pres')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>View Photos</span>
+                                <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                            <button onclick="openModal('certificate', 'visiotech-pres')" class="group px-5 py-2.5 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-yellow-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Certificate</span>
+                                <i class="fa-solid fa-award text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!-- CARD 3: Hackspectra 2.0 – MediSync -->
+                <!-- ============================================================ -->
+                <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -right-20 -top-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 4th & 5th April 2026</p>
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(6,182,212,0.2)] hover:shadow-[0_0_22px_rgba(6,182,212,0.35)] transition-shadow duration-300">
+                                <i class="fa-solid fa-bolt text-cyan-300 animate-pulse"></i>
+                                <span>Hackspectra 2.0 – 24h Hackathon</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">MediSync – AI Healthcare Solution</h3>
+                            <p class="text-gray-400 max-w-3xl mb-6">Developed MediSync during Hackspectra — an AI-powered healthcare solution focused on real-time patient monitoring, appointment handling, and patient-care efficiency.</p>
+                            <div class="flex flex-wrap items-center gap-2 text-sm mt-4">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">HTML</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Tailwind CSS</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">JavaScript</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Node.js</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Express.js</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Firebase</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Gemini AI</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">JWT</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Vercel</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('gallery', 'hackspectra')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>View Photos</span>
+                                <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                            <button onclick="openModal('certificate', 'hackspectra')" class="group px-5 py-2.5 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-yellow-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Certificate</span>
+                                <i class="fa-solid fa-award text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!-- CARD 4: AI Bootcamp -->
+                <!-- ============================================================ -->
+                <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+                    <div class="absolute -right-20 -top-20 w-40 h-40 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 27th & 28th February 2026</p>
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(34,197,94,0.2)] hover:shadow-[0_0_22px_rgba(34,197,94,0.35)] transition-shadow duration-300">
+                                <i class="fa-solid fa-robot text-green-300"></i>
+                                <span>AI Bootcamp Participant</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">Artificial Intelligence Bootcamp</h3>
+                            <p class="text-gray-400 max-w-3xl mb-6">Explored AI fundamentals, modern tools, and practical applications through hands-on learning and workshops.</p>
+                            <div class="flex flex-wrap items-center gap-2 text-sm mt-4">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">AI Tools</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('gallery', 'aibootcamp')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>View Photos</span>
+                                <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                            <button onclick="openModal('certificate', 'aibootcamp')" class="group px-5 py-2.5 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-yellow-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Certificate</span>
+                                <i class="fa-solid fa-award text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================ -->
+                <!-- CARD 5: HackCity 2026 – CNG & EV (Runner-Up) -->
+                <!-- ============================================================ -->
+                <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -right-20 -top-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> HackCity 2026</p>
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-shadow duration-300">
+                                <i class="fa-solid fa-trophy text-purple-300 animate-pulse"></i>
+                                <span style="text-shadow: 0 0 8px rgba(168,85,247,0.5);">Runner-Up at HackCity 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">CNG & EV Booking System</h3>
+                            <p class="text-gray-400 max-w-3xl mb-6">Smart booking platform for CNG & EV users with real-time slot reservations and seamless station management.</p>
+                            <div class="flex flex-wrap items-center gap-2 text-sm mt-4">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">HTML</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">CSS</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">JavaScript</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Tailwind CSS</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">PHP</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">MySQL</span>
+                                <span class="text-gray-600 font-bold">•</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">Google Maps API</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <a href="#" target="_blank" class="group px-5 py-2.5 bg-accent/10 hover:bg-accent/20 border border-accent/20 text-accent rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Live Demo</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+                            </a>
+                            <a href="#" target="_blank" class="group px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>GitHub Repo</span>
+                                <i class="fa-brands fa-github text-lg group-hover:scale-110 transition-transform"></i>
+                            </a>
+                            <button onclick="openModal('gallery', 'hackcity')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>View Photos</span>
+                                <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer id="contact" class="py-20 mt-10 border-t border-white/10 text-center">
+            
+            <div data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect<span class="text-accent">.</span></h2>
+                <p class="text-gray-400 mb-8 max-w-xl mx-auto">Currently looking for new opportunities and exciting hackathons. Hover over the icons below to connect with me.</p>
+                
+                <ul class="social-wrapper flex justify-center flex-wrap">
+
+                    <li class="icon phone" onclick="window.location.href='tel:+918605168653'">
+                        <span class="tooltip">Call Me</span>
+                        <span><i class="fas fa-phone"></i></span>
+                    </li>
+
+                    <li class="icon email" onclick="window.location.href='mailto:theabhijeetkendre@gmail.com'">
+                        <span class="tooltip">Email</span>
+                        <span><i class="fas fa-envelope"></i></span>
+                    </li>
+
+                    <li class="icon college" onclick="window.location.href='mailto:s25_kendre_abhijeet@mgmcen.ac.in'">
+                        <span class="tooltip">College Mail</span>
+                        <span><i class="fas fa-graduation-cap"></i></span>
+                    </li>
+
+                    <li class="icon linkedin" onclick="window.open('https://www.linkedin.com/in/abhijeetkendre', '_blank')">
+                        <span class="tooltip">LinkedIn</span>
+                        <span><i class="fab fa-linkedin-in"></i></span>
+                    </li>
+
+                    <li class="icon instagram" onclick="window.open('https://www.instagram.com/abhijeetkendre26', '_blank')">
+                        <span class="tooltip">Instagram</span>
+                        <span><i class="fab fa-instagram"></i></span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- --- CONTACT FORM --- -->
+            <div class="max-w-2xl mx-auto mt-16 text-left" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                    <!-- Decorative blur -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+
+                    <h3 class="text-2xl font-bold mb-6 text-white text-center relative z-10">Send a Message</h3>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5 relative z-10">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="7f6263b1-1092-4e52-929f-e46aa9e44116">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <!-- Name -->
+                            <div class="relative group">
+                                <i class="fa-regular fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                                <input type="text" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" placeholder="Your Name" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
+                            </div>
+                            
+                            <!-- Company -->
+                            <div class="relative group">
+                                <i class="fa-regular fa-building absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                                <input type="text" name="company" placeholder="Company (Optional)" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
+                            </div>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="flex gap-3">
+                            <div class="relative w-1/3 md:w-1/4 group">
+                                <i class="fa-solid fa-globe absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 text-sm group-focus-within:text-accent transition-colors"></i>
+                                <select name="country_code" id="countrySelect" class="w-full glass-input rounded-lg py-3 pl-8 pr-2 appearance-none cursor-pointer text-sm">
+                                    <!-- Options populated by JavaScript -->
+                                </select>
+                            </div>
+                            <div class="relative w-2/3 md:w-3/4 group">
+                                <i class="fa-solid fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                                <input type="tel" id="phoneInput" name="phone" required placeholder="Mobile Number" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="relative group">
+                            <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                            <input type="email" name="email" required placeholder="Email Address" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="relative group">
+                            <i class="fa-solid fa-pen absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                            <input type="text" name="subject" required placeholder="Subject" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
+                        </div>
+
+                        <!-- Message -->
+                        <div class="relative group">
+                            <i class="fa-regular fa-comment absolute left-4 top-4 text-gray-400 group-focus-within:text-accent transition-colors"></i>
+                            <textarea name="message" required rows="4" placeholder="Your Message" class="w-full glass-input rounded-lg py-3 pl-12 pr-4 resize-none"></textarea>
+                        </div>
+
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <!-- Submit -->
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg py-3 hover:from-blue-600 hover:to-purple-700 transition-all transform hover:-translate-y-1 shadow-[0_5px_15px_rgba(59,130,246,0.4)] flex justify-center items-center gap-2 mt-2">
+                            <span>Send Message</span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 max-w-4xl mx-auto">
+                <p class="font-bold tracking-widest text-white">ABHIJEET KENDRE</p>
+                <p>&copy; 2026 Abhijeet Kendre. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // --- DYNAMIC FORM LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneInput = document.getElementById('phoneInput');
+            const countrySelect = document.getElementById('countrySelect');
+
+            const countryData = [
+                { code: "+1", country: "US/CA", min: 10, max: 10 },
+                { code: "+7", country: "RU/KZ", min: 10, max: 10 },
+                { code: "+20", country: "EG", min: 10, max: 10 },
+                { code: "+27", country: "ZA", min: 9, max: 9 },
+                { code: "+30", country: "GR", min: 10, max: 10 },
+                { code: "+31", country: "NL", min: 9, max: 9 },
+                { code: "+32", country: "BE", min: 9, max: 9 },
+                { code: "+33", country: "FR", min: 9, max: 9 },
+                { code: "+34", country: "ES", min: 9, max: 9 },
+                { code: "+36", country: "HU", min: 9, max: 9 },
+                { code: "+39", country: "IT", min: 10, max: 10 },
+                { code: "+41", country: "CH", min: 9, max: 9 },
+                { code: "+43", country: "AT", min: 10, max: 10 },
+                { code: "+44", country: "UK", min: 10, max: 10 },
+                { code: "+45", country: "DK", min: 8, max: 8 },
+                { code: "+46", country: "SE", min: 9, max: 9 },
+                { code: "+47", country: "NO", min: 8, max: 8 },
+                { code: "+48", country: "PL", min: 9, max: 9 },
+                { code: "+49", country: "DE", min: 10, max: 11 },
+                { code: "+51", country: "PE", min: 9, max: 9 },
+                { code: "+52", country: "MX", min: 10, max: 10 },
+                { code: "+54", country: "AR", min: 10, max: 10 },
+                { code: "+55", country: "BR", min: 10, max: 11 },
+                { code: "+56", country: "CL", min: 9, max: 9 },
+                { code: "+57", country: "CO", min: 10, max: 10 },
+                { code: "+58", country: "VE", min: 10, max: 10 },
+                { code: "+60", country: "MY", min: 9, max: 10 },
+                { code: "+61", country: "AU", min: 9, max: 9 },
+                { code: "+62", country: "ID", min: 9, max: 12 },
+                { code: "+63", country: "PH", min: 10, max: 10 },
+                { code: "+64", country: "NZ", min: 9, max: 10 },
+                { code: "+65", country: "SG", min: 8, max: 8 },
+                { code: "+66", country: "TH", min: 9, max: 9 },
+                { code: "+81", country: "JP", min: 10, max: 10 },
+                { code: "+82", country: "KR", min: 9, max: 10 },
+                { code: "+84", country: "VN", min: 9, max: 10 },
+                { code: "+86", country: "CN", min: 11, max: 11 },
+                { code: "+90", country: "TR", min: 10, max: 10 },
+                { code: "+91", country: "IN", min: 10, max: 10 },
+                { code: "+92", country: "PK", min: 10, max: 10 },
+                { code: "+93", country: "AF", min: 9, max: 9 },
+                { code: "+94", country: "LK", min: 9, max: 9 },
+                { code: "+95", country: "MM", min: 9, max: 10 },
+                { code: "+98", country: "IR", min: 10, max: 10 },
+                { code: "+212", country: "MA", min: 9, max: 9 },
+                { code: "+213", country: "DZ", min: 9, max: 9 },
+                { code: "+216", country: "TN", min: 8, max: 8 },
+                { code: "+220", country: "GM", min: 7, max: 7 },
+                { code: "+234", country: "NG", min: 10, max: 10 },
+                { code: "+254", country: "KE", min: 10, max: 10 },
+                { code: "+255", country: "TZ", min: 9, max: 9 },
+                { code: "+256", country: "UG", min: 9, max: 9 },
+                { code: "+351", country: "PT", min: 9, max: 9 },
+                { code: "+353", country: "IE", min: 9, max: 9 },
+                { code: "+358", country: "FI", min: 9, max: 10 },
+                { code: "+380", country: "UA", min: 9, max: 9 },
+                { code: "+961", country: "LB", min: 8, max: 8 },
+                { code: "+962", country: "JO", min: 9, max: 9 },
+                { code: "+963", country: "SY", min: 9, max: 9 },
+                { code: "+964", country: "IQ", min: 10, max: 10 },
+                { code: "+965", country: "KW", min: 8, max: 8 },
+                { code: "+966", country: "SA", min: 9, max: 9 },
+                { code: "+971", country: "UAE", min: 9, max: 9 },
+                { code: "+972", country: "IL", min: 9, max: 9 },
+                { code: "+973", country: "BH", min: 8, max: 8 },
+                { code: "+974", country: "QA", min: 8, max: 8 },
+                { code: "+00", country: "Other", min: 6, max: 15 } // Generic fallback
+            ];
+
+            // Sort ascending by numerical code
+            countryData.sort((a, b) => {
+                let numA = parseInt(a.code.replace('+', ''));
+                let numB = parseInt(b.code.replace('+', ''));
+                if(numA === 0) return 1; // Put 'Other' at the bottom
+                if(numB === 0) return -1;
+                return numA - numB;
+            });
+
+            // Populate the dropdown
+            countrySelect.innerHTML = '';
+            countryData.forEach(data => {
+                const option = document.createElement('option');
+                option.value = data.code;
+                option.textContent = `${data.code} (${data.country})`;
+                if (data.code === "+91") {
+                    option.selected = true; // Default select India
+                }
+                option.dataset.min = data.min;
+                option.dataset.max = data.max;
+                countrySelect.appendChild(option);
+            });
+
+            // Update Validation rules when country changes
+            function updateValidation() {
+                const selectedOption = countrySelect.options[countrySelect.selectedIndex];
+                const min = selectedOption.dataset.min;
+                const max = selectedOption.dataset.max;
+                
+                if (min === max) {
+                    phoneInput.pattern = `[0-9]{${min}}`;
+                    phoneInput.title = `Must be exactly ${min} digits for this country code`;
+                    phoneInput.setAttribute('maxlength', max);
+                    phoneInput.setAttribute('minlength', min);
+                } else {
+                    phoneInput.pattern = `[0-9]{${min},${max}}`;
+                    phoneInput.title = `Must be between ${min} and ${max} digits for this country code`;
+                    phoneInput.setAttribute('maxlength', max);
+                    phoneInput.setAttribute('minlength', min);
+                }
+            }
+
+            countrySelect.addEventListener('change', updateValidation);
+            updateValidation(); // Run on initial load
+            
+            // Strictly prevent typing anything other than numbers
+            phoneInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        });
+
+        // --- DYNAMIC MODAL SYSTEM ---
+        const modalData = {
+            'visiotech-ui': {
+                title: 'Visiotech 2026 – UI Design using AI',
+                subtitle: 'Winner · 17th April 2026',
+                gallery: [
+                    { src: 'photos/UI%20Design%20Using%20AI/UI%20Design%20Using%20AI.jpg', alt: 'UI Design Using AI – Event Photo' }
+                ],
+                certificate: 'photos/UI%20Design%20Using%20AI/UI%20Design%20using%20AI%20-%20Cerificate.png'
+            },
+            'visiotech-pres': {
+                title: 'Visiotech 2026 – Project Presentation',
+                subtitle: 'Participant · 16th April 2026',
+                gallery: [
+                    { src: 'photos/Project%20Presentation/Project%20Presentation%20-%20photo.jpg', alt: 'Project Presentation Photo 1' },
+                    { src: 'photos/Project%20Presentation/Project%20Presentation%20-%20photo1.jpg', alt: 'Project Presentation Photo 2' },
+                    { src: 'photos/Project%20Presentation/Project%20Presentation%20-%20photo2.jpg', alt: 'Project Presentation Photo 3' },
+                    { src: 'photos/Project%20Presentation/Project%20Presentation%20-%20photo3.jpg', alt: 'Project Presentation Photo 4' }
+                ],
+                certificate: 'photos/Project%20Presentation/Project%20Presentation%20-%20Certificate.png'
+            },
+            'hackspectra': {
+                title: 'Hackspectra 2.0 – MediSync',
+                subtitle: '24h Hackathon · 4th & 5th April 2026',
+                gallery: [
+                    { src: 'photos/Hackspectra%202.0/Hackspetra%20-%20Photo1.jpg', alt: 'Hackspectra Photo 1' },
+                    { src: 'photos/Hackspectra%202.0/Hackspetra%20-%20photo%202.jpg', alt: 'Hackspectra Photo 2' },
+                    { src: 'photos/Hackspectra%202.0/Hacksptra%20-%20photo%203.jpg', alt: 'Hackspectra Photo 3' }
+                ],
+                certificate: 'photos/Hackspectra%202.0/Hackspetra%20Certificate.jpg'
+            },
+            'aibootcamp': {
+                title: 'Artificial Intelligence Bootcamp',
+                subtitle: 'Participant · 27th & 28th February 2026',
+                gallery: [
+                    { src: 'photos/AI%20Bootcamp%202026/AI%20Bootcamp%20-%20photo.JPG', alt: 'AI Bootcamp Photo 1' },
+                    { src: 'photos/AI%20Bootcamp%202026/AI%20Bootcamp%20-%20photo1.JPG', alt: 'AI Bootcamp Photo 2' },
+                    { src: 'photos/AI%20Bootcamp%202026/AI%20Bootcamp%20-%20photo2.JPG', alt: 'AI Bootcamp Photo 3' }
+                ],
+                certificate: 'photos/AI%20Bootcamp%202026/AI%20Bootcamp%20Certificate.jpg'
+            },
+            'hackcity': {
+                title: 'HackCity 2026 Gallery',
+                subtitle: 'Runner-Up · CNG & EV Booking System',
+                gallery: [
+                    { src: 'photos/HackCity%202026%20Gallary/hackcity-trophy.jpg', alt: 'HackCity Trophy' },
+                    { src: 'photos/HackCity%202026%20Gallary/hackcity-photo.jpg', alt: 'HackCity Photo 1' },
+                    { src: 'photos/HackCity%202026%20Gallary/hackcity-photo2.jpg', alt: 'HackCity App Screenshot' },
+                    { src: 'photos/HackCity%202026%20Gallary/hackcity-photo1.jpg', alt: 'HackCity Award Ceremony' }
+                ],
+                certificate: null
+            }
+        };
+
+        function openModal(type, eventKey) {
+            const data = modalData[eventKey];
+            if (!data) return;
+
+            const modal = document.getElementById('dynamicModal');
+            const content = document.getElementById('dynamicModalContent');
+            const titleEl = document.getElementById('modalTitle');
+            const subtitleEl = document.getElementById('modalSubtitle');
+            const bodyEl = document.getElementById('modalBody');
+
+            titleEl.textContent = data.title;
+            subtitleEl.textContent = data.subtitle;
+
+            if (type === 'gallery') {
+                bodyEl.innerHTML = `<div class="columns-2 gap-4 space-y-4">
+                    ${data.gallery.map(img => `
+                        <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg break-inside-avoid">
+                            <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        </div>`).join('')}
+                </div>`;
+            } else if (type === 'certificate') {
+                if (!data.certificate) {
+                    bodyEl.innerHTML = `<div class="flex flex-col items-center justify-center py-20 text-gray-500">
+                        <i class="fa-solid fa-file-circle-xmark text-4xl mb-4"></i>
+                        <p>No certificate available for this event.</p>
+                    </div>`;
+                } else {
+                    bodyEl.innerHTML = `<div class="flex flex-col items-center gap-6">
+                        <img src="${data.certificate}" alt="Certificate" class="w-full max-w-2xl rounded-xl border border-white/10 shadow-2xl">
+                        <a href="${data.certificate}" download class="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download Certificate
+                        </a>
+                    </div>`;
+                }
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                document.body.style.overflow = 'hidden';
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('dynamicModal');
+            const content = document.getElementById('dynamicModalContent');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+    <!-- Dynamic Modal -->
+    <div id="dynamicModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative w-full max-w-5xl max-h-[90vh] bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="dynamicModalContent">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-6 border-b border-white/10 shrink-0 bg-black/50 z-10">
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white" id="modalTitle"></h3>
+                    <p class="text-sm text-gray-400 mt-1" id="modalSubtitle"></p>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-10 h-10 flex items-center justify-center shrink-0 ml-4">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-black/20" id="modalBody"></div>
+        </div>
+    </div>
+</body>
+</html>
