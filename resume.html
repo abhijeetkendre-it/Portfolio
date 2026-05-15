@@ -56,11 +56,16 @@
 </head>
 <body>
 
-    <div class="text-center py-4 no-print bg-white border-b border-gray-200 sticky top-0 z-50">
-        <p class="text-gray-600 mb-2">Print this page (Ctrl+P / Cmd+P) and save as PDF <span class="font-bold text-blue-600">resume.pdf</span></p>
-        <button onclick="window.print()" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
-            <i class="fa-solid fa-print mr-2"></i> Print to PDF
-        </button>
+    <div class="py-4 px-6 no-print bg-white border-b border-gray-200 sticky top-0 z-50 flex flex-col sm:flex-row justify-between items-center shadow-sm">
+        <a href="/" class="mb-3 sm:mb-0 px-4 py-2 text-gray-600 hover:text-blue-600 font-medium transition flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <div class="text-center sm:text-right">
+            <p class="text-gray-600 mb-2 sm:mb-0 sm:mr-4 inline-block hidden sm:inline-block">Save as PDF <span class="font-bold text-blue-600">resume.pdf</span></p>
+            <button onclick="window.print()" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
+                <i class="fa-solid fa-print mr-2"></i> Print to PDF
+            </button>
+        </div>
     </div>
 
     <div class="page relative">
