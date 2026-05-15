@@ -909,7 +909,7 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            window.location.href = 'success.html';
+                            window.location.href = '/success';
                         } else {
                             console.error('Error:', data);
                             alert('Something went wrong. Please try again.');
