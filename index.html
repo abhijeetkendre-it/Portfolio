@@ -806,17 +806,34 @@
         // --- VISITOR NOTIFICATION TRACKING ---
         document.addEventListener('DOMContentLoaded', () => {
             if (!sessionStorage.getItem('notifiedVisit')) {
-                fetch('https://api.ipify.org?format=json')
+                // Fetch rich IP and location data
+                fetch('https://get.geojs.io/v1/ip/geo.json')
                     .then(response => response.json())
                     .then(data => {
-                        const ip = data.ip;
                         const now = new Date();
                         
                         const formData = new FormData();
                         formData.append('access_key', '70583505-c87e-41ac-9722-569e1cc3799a');
                         formData.append('subject', 'New Portfolio Visitor!');
-                        formData.append('IP Address', ip);
+                        
+                        // Basic Info
                         formData.append('Date & Time', now.toLocaleString());
+                        formData.append('IP Address', data.ip || 'Unknown');
+                        
+                        // Location Info
+                        formData.append('City', data.city || 'Unknown');
+                        formData.append('Region', data.region || 'Unknown');
+                        formData.append('Country', data.country || 'Unknown');
+                        formData.append('Organization/ISP', data.organization_name || 'Unknown');
+                        
+                        // Device & Browser Info
+                        formData.append('Browser/OS (User Agent)', navigator.userAgent);
+                        formData.append('Screen Resolution', `${window.screen.width}x${window.screen.height}`);
+                        formData.append('Language', navigator.language);
+                        
+                        // Traffic Source
+                        formData.append('Referrer', document.referrer || 'Direct / None');
+                        formData.append('Current Page', window.location.href);
                         
                         fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
