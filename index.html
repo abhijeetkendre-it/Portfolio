@@ -803,6 +803,32 @@
             offset: 100,
         });
 
+        // --- VISITOR NOTIFICATION TRACKING ---
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!sessionStorage.getItem('notifiedVisit')) {
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const ip = data.ip;
+                        const now = new Date();
+                        
+                        const formData = new FormData();
+                        formData.append('access_key', '70583505-c87e-41ac-9722-569e1cc3799a');
+                        formData.append('subject', 'New Portfolio Visitor!');
+                        formData.append('IP Address', ip);
+                        formData.append('Date & Time', now.toLocaleString());
+                        
+                        fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        }).then(() => {
+                            sessionStorage.setItem('notifiedVisit', 'true');
+                        }).catch(console.error);
+                    })
+                    .catch(console.error);
+            }
+        });
+
         // --- DYNAMIC FORM LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
             const phoneInput = document.getElementById('phoneInput');
