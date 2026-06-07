@@ -230,8 +230,10 @@
     <div class="bg-animated"></div>
 
     <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-black/50">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center relative">
             <a href="#home" class="text-2xl font-bold tracking-tighter">A <span class="text-accent">K</span></a>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
                 <a href="#home" class="hover:text-white transition-colors">Home</a>
                 <a href="#skills" class="hover:text-white transition-colors">Skills</a>
@@ -241,11 +243,51 @@
                     Contact
                 </a>
             </div>
-            <div class="md:hidden text-gray-400 hover:text-white cursor-pointer">
-                <i class="fa-solid fa-bars text-xl"></i>
+
+            <!-- Mobile Menu Toggle -->
+            <div id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white cursor-pointer z-50">
+                <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
             </div>
         </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="md:hidden hidden flex-col items-center bg-black/95 backdrop-blur-lg border-b border-white/5 absolute w-full left-0 top-full py-6 gap-6 shadow-2xl transition-all duration-300">
+            <a href="#home" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="#skills" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Skills</a>
+            <a href="#projects" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Work</a>
+            <a href="resume.html" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Resume</a>
+            <a href="#contact" class="mobile-link px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(59,130,246,0.3)] mt-2">
+                Contact
+            </a>
+        </div>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                } else {
+                    mobileMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+        });
+    </script>
 
     <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
         
