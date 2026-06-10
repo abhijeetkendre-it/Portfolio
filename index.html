@@ -833,7 +833,7 @@
             <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 max-w-4xl mx-auto">
                 <p class="font-bold tracking-widest text-white">ABHIJEET KENDRE</p>
                 <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                    <a href="https://github.com/abhijeetkendre-it/Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-2 group tooltip-container" title="Found a bug? Let me know!">
+                    <a href="#contact" id="bugReportBtn" class="hover:text-white transition-colors flex items-center gap-2 group tooltip-container" title="Found a bug? Let me know!">
                         <i class="fa-solid fa-bug text-gray-500 group-hover:text-red-400 transition-colors"></i>
                         <span class="text-xs uppercase tracking-wider font-semibold">Report an Issue</span>
                     </a>
@@ -1192,6 +1192,21 @@
 
         // Close on Escape key
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        // --- BUG REPORT LOGIC ---
+        const bugReportBtn = document.getElementById('bugReportBtn');
+        if (bugReportBtn) {
+            bugReportBtn.addEventListener('click', function(e) {
+                const subjectInput = document.querySelector('input[name="subject"]');
+                const messageInput = document.querySelector('textarea[name="message"]');
+                if (subjectInput) {
+                    subjectInput.value = "Bug Report - ";
+                }
+                if (messageInput) {
+                    setTimeout(() => messageInput.focus(), 800);
+                }
+            });
+        }
     </script>
 
     <!-- Dynamic Modal -->
