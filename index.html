@@ -1585,10 +1585,10 @@
             subtitleEl.textContent = data.subtitle;
 
             if (type === 'gallery') {
-                bodyEl.innerHTML = `<div class="columns-2 gap-4 space-y-4">
+                bodyEl.innerHTML = `<div class="grid grid-cols-2 gap-4">
                     ${data.gallery.map(img => `
-                        <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg break-inside-avoid">
-                            <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg aspect-[3/4]">
+                            <img src="${img.src}" alt="${img.alt}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
                         </div>`).join('')}
                 </div>`;
             } else if (type === 'certificate') {
@@ -1646,8 +1646,8 @@
                             </h4>
                             <div class="grid grid-cols-2 gap-3">
                                 ${data.gallery.map(img => `
-                                    <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50">
-                                        <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                                    <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50 aspect-[3/4]">
+                                        <img src="${img.src}" alt="${img.alt}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
                                     </div>`).join('')}
                             </div>
                         </div>` : ''}
