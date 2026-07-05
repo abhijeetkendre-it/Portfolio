@@ -1585,12 +1585,23 @@
             subtitleEl.textContent = data.subtitle;
 
             if (type === 'gallery') {
-                bodyEl.innerHTML = `<div class="columns-2 gap-4 space-y-4">
-                    ${data.gallery.map(img => `
-                        <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg break-inside-avoid">
-                            <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy">
-                        </div>`).join('')}
-                </div>`;
+                const col1 = data.gallery.filter((_, i) => i % 2 === 0);
+                const col2 = data.gallery.filter((_, i) => i % 2 !== 0);
+                bodyEl.innerHTML = `
+                    <div class="grid grid-cols-2 gap-4 items-start">
+                        <div class="flex flex-col gap-4">
+                            ${col1.map(img => `
+                                <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg">
+                                    <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                </div>`).join('')}
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            ${col2.map(img => `
+                                <div class="rounded-xl overflow-hidden group border border-white/5 bg-black/50 shadow-lg">
+                                    <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                </div>`).join('')}
+                        </div>
+                    </div>`;
             } else if (type === 'certificate') {
                 if (!data.certificate) {
                     bodyEl.innerHTML = `<div class="flex flex-col items-center justify-center py-20 text-gray-500">
@@ -1607,6 +1618,8 @@
                 }
             } else if (type === 'casestudy' && data.casestudy) {
                 const cs = data.casestudy;
+                const col1 = data.gallery.filter((_, i) => i % 2 === 0);
+                const col2 = data.gallery.filter((_, i) => i % 2 !== 0);
                 bodyEl.innerHTML = `
                     <div class="space-y-8 max-w-3xl mx-auto">
                         <div>
@@ -1644,11 +1657,19 @@
                             <h4 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2">
                                 <i class="fa-solid fa-images"></i> Gallery
                             </h4>
-                            <div class="columns-2 gap-3 space-y-3">
-                                ${data.gallery.map(img => `
-                                    <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50 break-inside-avoid">
-                                        <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" loading="lazy">
-                                    </div>`).join('')}
+                            <div class="grid grid-cols-2 gap-3 items-start">
+                                <div class="flex flex-col gap-3">
+                                    ${col1.map(img => `
+                                        <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50">
+                                            <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" loading="lazy">
+                                        </div>`).join('')}
+                                </div>
+                                <div class="flex flex-col gap-3">
+                                    ${col2.map(img => `
+                                        <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50">
+                                            <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" loading="lazy">
+                                        </div>`).join('')}
+                                </div>
                             </div>
                         </div>` : ''}
                     </div>`;
