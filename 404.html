@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 – Page Not Found | Abhijeet Kendre</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'] },
+                    colors: { dark: '#0a0a0a', accent: '#3b82f6' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0a0a; color: #fff; overflow-x: hidden; }
+        .bg-animated {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(59,130,246,0.12), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(147,51,234,0.12), transparent 25%);
+            animation: bgShift 15s ease-in-out infinite alternate;
+        }
+        @keyframes bgShift {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) translate(2%,2%); }
+            100% { transform: scale(1) translate(-2%,-2%); }
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #9333ea);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255,255,255,0.02); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 1rem;
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .glitch-404 {
+            position: relative; display: inline-block;
+        }
+        .glitch-404::before, .glitch-404::after {
+            content: '404'; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; opacity: 0.6;
+        }
+        .glitch-404::before {
+            color: #3b82f6; animation: glitch1 2.5s infinite;
+        }
+        .glitch-404::after {
+            color: #9333ea; animation: glitch2 2.5s infinite;
+        }
+        @keyframes glitch1 {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-3px, 2px); }
+            94% { transform: translate(3px, -2px); }
+            96% { transform: translate(-2px, -1px); }
+            98% { transform: translate(2px, 1px); }
+        }
+        @keyframes glitch2 {
+            0%, 90%, 100% { transform: translate(0); }
+            91% { transform: translate(3px, -2px); }
+            93% { transform: translate(-3px, 2px); }
+            95% { transform: translate(2px, 1px); }
+            97% { transform: translate(-2px, -1px); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white flex flex-col items-center justify-center min-h-screen relative">
+
+    <div class="bg-animated"></div>
+
+    <nav class="fixed w-full z-50 top-0 backdrop-blur-md border-b border-white/5 bg-black/50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tighter">A <span class="text-accent">K</span></a>
+        </div>
+    </nav>
+
+    <main class="max-w-lg w-full px-6 mt-20 z-10 text-center">
+        <div class="glass-card p-10 relative overflow-hidden shadow-2xl">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+
+            <div class="relative z-10">
+                <div class="float-anim mb-6">
+                    <span class="glitch-404 text-8xl md:text-9xl font-extrabold text-white/90 tracking-tight">404</span>
+                </div>
+
+                <h1 class="text-2xl md:text-3xl font-bold mb-3">Page Not Found</h1>
+                <p class="text-gray-400 mb-8 max-w-sm mx-auto">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="/" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all transform hover:-translate-y-1 shadow-[0_5px_15px_rgba(59,130,246,0.4)]">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Back to Home</span>
+                    </a>
+                    <a href="/#contact" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-lg transition-all transform hover:-translate-y-1">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Contact Me</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="absolute bottom-6 w-full text-center z-10">
+        <p class="text-sm text-gray-500">&copy; 2026 Abhijeet Kendre. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

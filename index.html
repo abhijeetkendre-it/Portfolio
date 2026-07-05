@@ -3,16 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhijeet Kendre | Portfolio</title>
-    
+    <title>Abhijeet Kendre | Full-Stack Developer & Google Student Ambassador 2026</title>
+    <meta name="description" content="Portfolio of Abhijeet Kendre — B.Tech IT student at MGM College Nanded, Google Student Ambassador 2026, Full-Stack Developer, AI & Hackathon enthusiast, and Team Lead at A.S.I.A. Core.">
+    <meta name="author" content="Abhijeet Kendre">
+    <meta name="keywords" content="Abhijeet Kendre, portfolio, full-stack developer, Google Student Ambassador, hackathon, MediSync, A.S.I.A. Core, MGM Nanded">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Abhijeet Kendre | Full-Stack Developer & Google Student Ambassador">
+    <meta property="og:description" content="B.Tech IT student, Google Student Ambassador 2026, Full-Stack Developer, and Team Lead at A.S.I.A. Core.">
+    <meta property="og:image" content="https://abhi.asiacore.in/1770917772212.jpeg">
+    <meta property="og:url" content="https://abhi.asiacore.in">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Abhijeet Kendre Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Abhijeet Kendre | Full-Stack Developer & Google Student Ambassador">
+    <meta name="twitter:description" content="Google Student Ambassador 2026 | Full-Stack Developer | AI & Hackathon Enthusiast">
+    <meta name="twitter:image" content="https://abhi.asiacore.in/1770917772212.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abhijeet Vishnukant Kendre",
+        "url": "https://abhi.asiacore.in",
+        "image": "https://abhi.asiacore.in/1770917772212.jpeg",
+        "jobTitle": "Full-Stack Developer & B.Tech Engineering Student",
+        "description": "Google Student Ambassador 2026, Team Lead at A.S.I.A. Core, Hackathon Winner",
+        "worksFor": { "@type": "Organization", "name": "A.S.I.A. Core", "url": "https://asiacore.in" },
+        "alumniOf": { "@type": "EducationalOrganization", "name": "M.G.M.'s College Of Engineering, Nanded" },
+        "knowsAbout": ["JavaScript", "Node.js", "Express.js", "Firebase", "MongoDB", "Tailwind CSS", "AI", "Full-Stack Development"],
+        "sameAs": [
+            "https://www.linkedin.com/in/abhijeetkendre",
+            "https://www.instagram.com/abhijeetkendre26",
+            "https://github.com/abhijeetkendre-it"
+        ]
+    }
+    </script>
+
+    <!-- CDN Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -29,215 +68,224 @@
             }
         }
     </script>
-    
+
     <style>
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
+        body { background-color: #0a0a0a; color: #ffffff; overflow-x: hidden; }
+
+        /* ===== LOADER ===== */
+        #pageLoader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #0a0a0a;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
-        /* --- BACKGROUND ANIMATION --- */
-        .bg-animated {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.12), transparent 25%);
-            animation: backgroundShift 15s ease-in-out infinite alternate;
+        #pageLoader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-logo {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: loaderPulse 1.2s ease-in-out infinite;
+        }
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
         }
 
+        /* ===== BACKGROUND ===== */
+        .bg-animated {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(59,130,246,0.12), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(147,51,234,0.12), transparent 25%);
+            animation: backgroundShift 15s ease-in-out infinite alternate;
+        }
         @keyframes backgroundShift {
             0% { transform: scale(1); }
             50% { transform: scale(1.1) translate(2%, 2%); }
             100% { transform: scale(1) translate(-2%, -2%); }
         }
 
-        /* --- GLASS CARDS --- */
+        /* ===== GLASS CARDS ===== */
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
+            background: rgba(255,255,255,0.02); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 1rem;
             transition: all 0.3s ease;
         }
-
         .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(59,130,246,0.2);
+            border-color: rgba(59,130,246,0.4);
         }
-
         .text-gradient {
             background: linear-gradient(to right, #3b82f6, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Custom Scrollbar for Modal */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
+        /* ===== TYPING CURSOR ===== */
+        .typing-cursor::after {
+            content: '|'; animation: blink 0.7s step-end infinite; margin-left: 2px;
+            background: linear-gradient(to right, #3b82f6, #9333ea);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.2);
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* ===== FLOATING PHOTO ===== */
+        .float-photo { animation: floatPhoto 4s ease-in-out infinite; }
+        @keyframes floatPhoto {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* --- NEW SOCIAL POPUP STYLES (INTEGRATED) --- */
-        .social-wrapper {
-            display: inline-flex;
-            list-style: none;
-            gap: 15px;
-            padding: 0;
-            margin-top: 20px;
-            font-family: "Poppins", sans-serif;
+        /* ===== STAT COUNTER ===== */
+        .stat-number {
+            font-size: 2.5rem; font-weight: 800; line-height: 1;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .social-wrapper .icon {
+        /* ===== TIMELINE ===== */
+        .timeline-line {
+            position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.3), rgba(147,51,234,0.3));
+            transform: translateX(-50%);
+        }
+        .timeline-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            border: 3px solid #0a0a0a;
+            box-shadow: 0 0 12px rgba(59,130,246,0.4);
+            position: absolute; left: 50%; transform: translateX(-50%); z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+            .timeline-dot { left: 20px; }
+        }
+
+        /* ===== ACHIEVEMENT BADGES ===== */
+        .achievement-card {
+            position: relative; overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .achievement-card:hover { transform: translateY(-4px); }
+        .achievement-card .achievement-glow {
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .achievement-card:hover .achievement-glow { opacity: 1; }
+
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-card {
             position: relative;
-            background: #ffffff;
-            border-radius: 50%;
-            padding: 15px;
-            margin: 0;
-            width: 55px;
-            height: 55px;
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            color: #333; /* Default icon color */
         }
-
-        .social-wrapper .tooltip {
-            position: absolute;
-            top: 0;
-            font-size: 14px;
-            background: #ffffff;
-            color: #ffffff;
-            padding: 5px 8px;
-            border-radius: 5px;
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
+        .testimonial-card::before {
+            content: '\201C'; position: absolute; top: -10px; left: 16px;
+            font-size: 5rem; line-height: 1; font-family: Georgia, serif;
+            background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(147,51,234,0.3));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            white-space: nowrap;
-            font-weight: 500;
         }
 
+        /* ===== SCROLLBAR ===== */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+        /* ===== SOCIAL POPUP ===== */
+        .social-wrapper {
+            display: inline-flex; list-style: none; gap: 15px;
+            padding: 0; margin-top: 20px; font-family: "Poppins", sans-serif;
+        }
+        .social-wrapper .icon {
+            position: relative; background: #ffffff; border-radius: 50%;
+            padding: 15px; margin: 0; width: 55px; height: 55px; font-size: 20px;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.1); cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            color: #333;
+        }
+        .social-wrapper .tooltip {
+            position: absolute; top: 0; font-size: 14px;
+            background: #ffffff; color: #ffffff;
+            padding: 5px 8px; border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            opacity: 0; pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            white-space: nowrap; font-weight: 500;
+        }
         .social-wrapper .tooltip::before {
-            position: absolute;
-            content: "";
-            height: 8px;
-            width: 8px;
-            background: #ffffff;
-            bottom: -3px;
-            left: 50%;
+            position: absolute; content: ""; height: 8px; width: 8px;
+            background: #ffffff; bottom: -3px; left: 50%;
             transform: translate(-50%) rotate(45deg);
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
+        .social-wrapper .icon:hover .tooltip { top: -50px; opacity: 1; visibility: visible; pointer-events: auto; }
 
-        .social-wrapper .icon:hover .tooltip {
-            top: -50px;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        /* Specific Social Colors & Gradients */
-        
-        /* Instagram */
         .social-wrapper .instagram:hover,
         .social-wrapper .instagram:hover .tooltip,
         .social-wrapper .instagram:hover .tooltip::before {
-            background: #f09433; 
-            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-            color: #ffffff;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
         }
-
-        /* LinkedIn */
         .social-wrapper .linkedin:hover,
         .social-wrapper .linkedin:hover .tooltip,
-        .social-wrapper .linkedin:hover .tooltip::before {
-            background: #0077b5;
-            color: #ffffff;
-        }
-
-        /* Gmail (Personal) */
+        .social-wrapper .linkedin:hover .tooltip::before { background: #0077b5; color: #fff; }
         .social-wrapper .email:hover,
         .social-wrapper .email:hover .tooltip,
-        .social-wrapper .email:hover .tooltip::before {
-            background: #EA4335;
-            color: #ffffff;
-        }
-
-        /* College Email (using a greenish tone or dark grey) */
+        .social-wrapper .email:hover .tooltip::before { background: #EA4335; color: #fff; }
         .social-wrapper .college:hover,
         .social-wrapper .college:hover .tooltip,
-        .social-wrapper .college:hover .tooltip::before {
-            background: #10b981; /* Green for success/education */
-            color: #ffffff;
-        }
-
-        /* Phone */
+        .social-wrapper .college:hover .tooltip::before { background: #10b981; color: #fff; }
         .social-wrapper .phone:hover,
         .social-wrapper .phone:hover .tooltip,
-        .social-wrapper .phone:hover .tooltip::before {
-            background: #25D366; /* WhatsApp/Phone Green */
-            color: #ffffff;
-        }
+        .social-wrapper .phone:hover .tooltip::before { background: #25D366; color: #fff; }
+        .social-wrapper .github:hover,
+        .social-wrapper .github:hover .tooltip,
+        .social-wrapper .github:hover .tooltip::before { background: #333; color: #fff; }
 
-        /* --- FORM STYLES --- */
+        /* ===== FORM ===== */
         .glass-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: white; transition: all 0.3s ease;
         }
         .glass-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-            background: rgba(255, 255, 255, 0.08);
+            outline: none; border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59,130,246,0.3);
+            background: rgba(255,255,255,0.08);
         }
-        .glass-input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
+        .glass-input::placeholder { color: rgba(255,255,255,0.4); }
+        select.glass-input option { background: #0a0a0a; color: white; }
+
+        /* ===== SKILL ICON HOVER ===== */
+        .skill-icon-wrap {
+            transition: all 0.3s ease;
         }
-        /* Custom select styling for dark mode */
-        select.glass-input option {
-            background: #0a0a0a;
-            color: white;
+        .skill-icon-wrap:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(59,130,246,0.3);
         }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-white">
 
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="pageLoader">
+        <div class="loader-logo">A K</div>
+    </div>
+
     <div class="bg-animated"></div>
 
+    <!-- ===== NAVBAR ===== -->
     <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-black/50">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center relative">
             <a href="#home" class="text-2xl font-bold tracking-tighter">A <span class="text-accent">K</span></a>
-            
+
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
                 <a href="#home" class="hover:text-white transition-colors">Home</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#journey" class="hover:text-white transition-colors">Journey</a>
                 <a href="#projects" class="hover:text-white transition-colors">Work</a>
+                <a href="#achievements" class="hover:text-white transition-colors">Achievements</a>
                 <a href="resume.html" class="hover:text-white transition-colors">Resume</a>
                 <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
                     Contact
@@ -250,11 +298,12 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Container -->
+        <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden flex-col items-center bg-black/95 backdrop-blur-lg border-b border-white/5 absolute w-full left-0 top-full py-6 gap-6 shadow-2xl transition-all duration-300">
             <a href="#home" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Home</a>
-            <a href="#skills" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Skills</a>
+            <a href="#journey" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Journey</a>
             <a href="#projects" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Work</a>
+            <a href="#achievements" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Achievements</a>
             <a href="resume.html" class="mobile-link text-lg font-medium text-gray-300 hover:text-white transition-colors">Resume</a>
             <a href="#contact" class="mobile-link px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(59,130,246,0.3)] mt-2">
                 Contact
@@ -262,69 +311,87 @@
         </div>
     </nav>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
-                } else {
-                    mobileMenuIcon.classList.replace('fa-bars', 'fa-xmark');
-                }
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
-                });
-            });
-        });
-    </script>
-
     <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
-        
+
+        <!-- ===== HERO SECTION ===== -->
         <section id="home" class="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-12">
             <div class="md:w-3/5">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-8" data-aos="fade-down">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     Available for Internships
                 </div>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight" data-aos="fade-up" data-aos-delay="100">
+
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight leading-tight" data-aos="fade-up" data-aos-delay="100">
                     Abhijeet <br> <span class="text-gradient">Kendre</span>
                 </h1>
-                
-                <p class="text-gray-400 text-lg md:text-xl max-w-xl mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                    B.Tech Engineering Student In Information Technology,<br>
-                    At M.G.M.'s College Of Engineering, Nanded.<br>
-                    <span class="text-white mt-2 inline-block">Team Leader of <a href="https://asiacore.in" target="_blank" class="text-accent hover:underline font-semibold">A.S.I.A. Core</a></span>
+
+                <!-- Typing Effect Headline -->
+                <div class="mb-8" data-aos="fade-up" data-aos-delay="150">
+                    <span class="text-lg md:text-xl text-gray-400">I'm a </span>
+                    <span id="typingText" class="text-lg md:text-xl font-semibold text-white typing-cursor"></span>
+                </div>
+
+                <p class="text-gray-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    B.Tech Engineering Student in Information Technology at
+                    <span class="text-white">M.G.M.'s College Of Engineering, Nanded.</span><br>
+                    Team Leader of <a href="https://asiacore.in" target="_blank" class="text-accent hover:underline font-semibold">A.S.I.A. Core</a>
                 </p>
-                
+
                 <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
                     <a href="resume.html" class="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors">
-                        <i class="fa-solid fa-download mr-2"></i> Download resume
+                        <i class="fa-solid fa-download mr-2"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Contact Me
                     </a>
                     <a href="#projects" class="px-6 py-3 glass-card text-white font-semibold rounded-lg hover:bg-white/10 transition-colors border border-white/10">
                         View Work
                     </a>
                 </div>
             </div>
-            
+
             <div class="md:w-2/5 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
-                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-white/10 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+                <div class="float-photo w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-white/10 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.2)]">
                     <img src="1770917772212.jpeg" alt="Abhijeet Kendre" class="w-full h-full object-cover bg-gray-900" onerror="this.src='https://via.placeholder.com/400x400/111111/3b82f6?text=Abhi'">
                 </div>
             </div>
         </section>
 
+        <!-- ===== STATISTICS SECTION ===== -->
+        <section id="stats" class="py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="statsGrid">
+                <div class="glass-card p-6 text-center group" data-aos="fade-up" data-aos-delay="50">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-trophy text-yellow-400 text-xl"></i>
+                    </div>
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest font-semibold mt-2">Hackathons</div>
+                </div>
+                <div class="glass-card p-6 text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-code text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest font-semibold mt-2">Projects</div>
+                </div>
+                <div class="glass-card p-6 text-center group" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-google text-green-400 text-xl"></i>
+                    </div>
+                    <div class="stat-number text-2xl md:text-3xl" data-target="0" data-label="GSA">GSA</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest font-semibold mt-2">Google Ambassador</div>
+                </div>
+                <div class="glass-card p-6 text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-rocket text-purple-400 text-xl"></i>
+                    </div>
+                    <div class="stat-number text-2xl md:text-3xl" data-target="0" data-label="Lead">Lead</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest font-semibold mt-2">A.S.I.A. Core</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION ===== -->
         <section id="skills" class="py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Technical Stack</h2>
             <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core technologies and tools I work with.</p>
@@ -338,28 +405,34 @@
                     </h3>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-code text-blue-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">C / C++</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-js text-yellow-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">JavaScript</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-html5 text-orange-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">HTML5</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-css3-alt text-blue-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">CSS3</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0 cursor-default">
+                                <i class="fa-brands fa-php text-indigo-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">PHP</span>
                         </li>
                     </ul>
                 </div>
@@ -371,19 +444,19 @@
                     </h3>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-wind text-cyan-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Tailwind CSS</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-pen-ruler text-pink-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">UI Design</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-robot text-purple-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">AI Tools</span>
@@ -391,35 +464,41 @@
                     </ul>
                 </div>
 
-                <!-- Backend & Database -->
+                <!-- Backend & DB -->
                 <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-5 flex items-center gap-2">
                         <i class="fa-solid fa-server text-green-400"></i> Backend & DB
                     </h3>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-node-js text-green-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Node.js</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-gray-500/10 border border-gray-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-gray-500/10 border border-gray-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-bolt text-gray-300"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Express.js</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-fire text-orange-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Firebase</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-leaf text-green-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">MongoDB</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 cursor-default">
+                                <i class="fa-solid fa-database text-blue-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">MySQL</span>
                         </li>
                     </ul>
                 </div>
@@ -431,62 +510,164 @@
                     </h3>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-git-alt text-red-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Git</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-brands fa-github text-white"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">GitHub</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-code text-blue-400"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">VS Code</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-globe text-purple-400"></i>
-                            </span>
-                            <span class="text-sm font-medium text-gray-300">GitHub Pages</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 cursor-default">
                                 <i class="fa-solid fa-triangle-exclamation text-white"></i>
                             </span>
                             <span class="text-sm font-medium text-gray-300">Vercel</span>
                         </li>
+                        <li class="flex items-center gap-3">
+                            <span class="skill-icon-wrap w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 cursor-default">
+                                <i class="fa-solid fa-wand-magic-sparkles text-purple-400"></i>
+                            </span>
+                            <span class="text-sm font-medium text-gray-300">Gemini AI</span>
+                        </li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
+        <!-- ===== JOURNEY TIMELINE ===== -->
+        <section id="journey" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">My Journey</h2>
+            <p class="text-gray-400 mb-16" data-aos="fade-up" data-aos-delay="50">Milestones that define my path.</p>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Timeline Vertical Line -->
+                <div class="timeline-line hidden md:block"></div>
+                <div class="timeline-line md:hidden"></div>
+
+                <!-- Milestone 1 -->
+                <div class="relative flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-16" data-aos="fade-right" data-aos-delay="50">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="glass-card p-5">
+                            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">2024</span>
+                            <h3 class="text-lg font-bold text-white mt-1">HSC Completed – Science</h3>
+                            <p class="text-sm text-gray-400 mt-2">Completed Higher Secondary Certificate (Science) from Maharashtra State Board, laying the foundation for engineering.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center mb-12 md:mb-16" data-aos="fade-left" data-aos-delay="100">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:text-left">
+                        <div class="glass-card p-5">
+                            <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">2025</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Started B.Tech in IT</h3>
+                            <p class="text-sm text-gray-400 mt-2">Began engineering at M.G.M.'s College Of Engineering, Nanded. Dived into programming, web development, and competitive coding.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-16" data-aos="fade-right" data-aos-delay="150">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="glass-card p-5 border-purple-500/20">
+                            <span class="text-xs text-purple-400 font-semibold uppercase tracking-wider">Jan 2026</span>
+                            <h3 class="text-lg font-bold text-white mt-1">🥈 HackCity Runner-Up</h3>
+                            <p class="text-sm text-gray-400 mt-2">Won 2nd place at my first hackathon with a CNG & EV Booking System. First taste of building under pressure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center mb-12 md:mb-16" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:text-left">
+                        <div class="glass-card p-5">
+                            <span class="text-xs text-green-400 font-semibold uppercase tracking-wider">Feb 2026</span>
+                            <h3 class="text-lg font-bold text-white mt-1">🤖 AI Bootcamp</h3>
+                            <p class="text-sm text-gray-400 mt-2">Explored AI fundamentals, prompt engineering, and practical AI tool integration through an intensive 2-day bootcamp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="relative flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-16" data-aos="fade-right" data-aos-delay="250">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="glass-card p-5 border-cyan-500/20">
+                            <span class="text-xs text-cyan-400 font-semibold uppercase tracking-wider">Apr 2026</span>
+                            <h3 class="text-lg font-bold text-white mt-1">⚡ Hackspectra 2.0 – MediSync</h3>
+                            <p class="text-sm text-gray-400 mt-2">Built MediSync, an AI-powered healthcare platform, during a grueling 24-hour hackathon. Led the full-stack development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center mb-12 md:mb-16" data-aos="fade-left" data-aos-delay="300">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:text-left">
+                        <div class="glass-card p-5 border-yellow-500/20">
+                            <span class="text-xs text-yellow-400 font-semibold uppercase tracking-wider">Apr 2026</span>
+                            <h3 class="text-lg font-bold text-white mt-1">🏆 Visiotech Winner – UI Design</h3>
+                            <p class="text-sm text-gray-400 mt-2">Won first place in the UI Design using AI competition at Visiotech 2026, showcasing creativity in rapid prototyping.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 7 -->
+                <div class="relative flex flex-col md:flex-row items-start md:items-center mb-12 md:mb-16" data-aos="fade-right" data-aos-delay="350">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="glass-card p-5 border-blue-500/20">
+                            <span class="text-xs text-blue-400 font-semibold uppercase tracking-wider">May 2026</span>
+                            <h3 class="text-lg font-bold text-white mt-1">🌟 Google Student Ambassador</h3>
+                            <p class="text-sm text-gray-400 mt-2">Selected as the official Google Student Ambassador for the 2026 cohort, leading campus developer community initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 8 (Future) -->
+                <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center" data-aos="fade-left" data-aos-delay="400">
+                    <div class="timeline-dot top-2 md:top-1/2 md:-translate-y-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:text-left">
+                        <div class="glass-card p-5 border-accent/20 bg-accent/5">
+                            <span class="text-xs text-accent font-semibold uppercase tracking-wider">The Future</span>
+                            <h3 class="text-lg font-bold text-white mt-1">🔮 What's Next</h3>
+                            <p class="text-sm text-gray-400 mt-2">Open to internships, collaborations, and building products that make an impact. Let's create something amazing together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION ===== -->
         <section id="projects" class="py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Featured Work</h2>
             <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core projects and hackathon experiences.</p>
-          
+
             <div class="grid grid-cols-1 gap-6">
 
-                <!-- ============================================================ -->
                 <!-- CARD 0: Google Student Ambassador -->
-                <!-- ============================================================ -->
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(66,133,244,0.4)]" data-aos="fade-up" data-aos-delay="50">
-                    <!-- Google Gradient Border wrapper -->
                     <div class="p-[2px] rounded-2xl h-full" style="background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853);">
-                        <!-- Dark card content -->
                         <div class="bg-[#0a0a0a] p-8 rounded-[14px] h-full relative overflow-hidden">
-                            <!-- Subtle blur effect like other cards -->
                             <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                            
                             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                                 <div class="flex-1">
                                     <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> May 2026 - Present</p>
-                                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(59,130,246,0.2)] hover:shadow-[0_0_22px_rgba(59,130,246,0.35)] transition-shadow duration-300">
+                                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(59,130,246,0.2)]">
                                         <i class="fa-brands fa-google text-[#4285F4]"></i>
                                         <span>Google Student Ambassador 2026</span>
                                     </div>
@@ -504,6 +685,10 @@
                                             <i class="fa-brands fa-whatsapp text-xl group-hover/wa:scale-110 transition-transform"></i>
                                             <span>Join WhatsApp Group</span>
                                         </a>
+                                        <button onclick="openModal('casestudy', 'gsa')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium w-full md:w-auto">
+                                            <span>View Details</span>
+                                            <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="w-full md:w-48 flex justify-center md:justify-end shrink-0 hidden md:flex">
@@ -514,17 +699,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
                 <!-- CARD 1: Visiotech – UI Design Using AI (Winner) -->
-                <!-- ============================================================ -->
                 <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
                         <div class="flex-1">
-                            <!-- Date -->
                             <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 17th April 2026</p>
-                            <!-- Badge -->
-                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(234,179,8,0.25)] hover:shadow-[0_0_25px_rgba(234,179,8,0.4)] transition-shadow duration-300">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(234,179,8,0.25)]">
                                 <i class="fa-solid fa-trophy text-yellow-300 animate-pulse"></i>
                                 <span style="text-shadow: 0 0 8px rgba(234,179,8,0.5);">Winner at Visiotech 2026</span>
                             </div>
@@ -534,8 +715,11 @@
                                 <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-gray-300 font-medium">AI Tools</span>
                             </div>
                         </div>
-                        <!-- Buttons -->
                         <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('casestudy', 'visiotech-ui')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                            </button>
                             <button onclick="openModal('gallery', 'visiotech-ui')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
                                 <span>View Photos</span>
                                 <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
@@ -548,15 +732,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
-                <!-- CARD 2: Visiotech – Project Presentation (Participant) -->
-                <!-- ============================================================ -->
+                <!-- CARD 2: Project Presentation -->
                 <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
                         <div class="flex-1">
                             <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 16th April 2026</p>
-                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(59,130,246,0.2)] hover:shadow-[0_0_22px_rgba(59,130,246,0.35)] transition-shadow duration-300">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(59,130,246,0.2)]">
                                 <i class="fa-solid fa-person-chalkboard text-blue-300"></i>
                                 <span>Participate in Project Presentation</span>
                             </div>
@@ -583,6 +765,10 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('casestudy', 'visiotech-pres')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                            </button>
                             <button onclick="openModal('gallery', 'visiotech-pres')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
                                 <span>View Photos</span>
                                 <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
@@ -595,15 +781,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
                 <!-- CARD 3: Hackspectra 2.0 – MediSync -->
-                <!-- ============================================================ -->
                 <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
                         <div class="flex-1">
                             <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 4th & 5th April 2026</p>
-                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(6,182,212,0.2)] hover:shadow-[0_0_22px_rgba(6,182,212,0.35)] transition-shadow duration-300">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
                                 <i class="fa-solid fa-bolt text-cyan-300 animate-pulse"></i>
                                 <span>Hackspectra 2.0 – 24h Hackathon</span>
                             </div>
@@ -630,6 +814,10 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('casestudy', 'hackspectra')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                            </button>
                             <button onclick="openModal('gallery', 'hackspectra')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
                                 <span>View Photos</span>
                                 <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
@@ -642,15 +830,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
                 <!-- CARD 4: AI Bootcamp -->
-                <!-- ============================================================ -->
                 <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="250">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
                         <div class="flex-1">
                             <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 27th & 28th February 2026</p>
-                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(34,197,94,0.2)] hover:shadow-[0_0_22px_rgba(34,197,94,0.35)] transition-shadow duration-300">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold mb-4 shadow-[0_0_12px_rgba(34,197,94,0.2)]">
                                 <i class="fa-solid fa-robot text-green-300"></i>
                                 <span>AI Bootcamp Participant</span>
                             </div>
@@ -661,6 +847,10 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
+                            <button onclick="openModal('casestudy', 'aibootcamp')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                            </button>
                             <button onclick="openModal('gallery', 'aibootcamp')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
                                 <span>View Photos</span>
                                 <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
@@ -673,15 +863,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
                 <!-- CARD 5: HackCity 2026 – CNG & EV (Runner-Up) -->
-                <!-- ============================================================ -->
                 <div class="glass-card p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
                         <div class="flex-1">
                             <p class="text-xs text-gray-500 font-medium mb-3 flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 29th January 2026</p>
-                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-shadow duration-300">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
                                 <i class="fa-solid fa-trophy text-purple-300 animate-pulse"></i>
                                 <span style="text-shadow: 0 0 8px rgba(168,85,247,0.5);">Runner-Up at HackCity 2026</span>
                             </div>
@@ -704,14 +892,10 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap md:flex-col justify-center md:justify-start gap-3 mt-4 md:mt-0 shrink-0 w-full md:w-auto">
-                            <a href="#" target="_blank" class="group px-5 py-2.5 bg-accent/10 hover:bg-accent/20 border border-accent/20 text-accent rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
-                                <span>Live Demo</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-sm group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
-                            </a>
-                            <a href="#" target="_blank" class="group px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
-                                <span>GitHub Repo</span>
-                                <i class="fa-brands fa-github text-lg group-hover:scale-110 transition-transform"></i>
-                            </a>
+                            <button onclick="openModal('casestudy', 'hackcity')" class="group px-5 py-2.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
+                                <span>Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                            </button>
                             <button onclick="openModal('gallery', 'hackcity')" class="group px-5 py-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-purple-400 rounded-lg transition-all flex items-center justify-center gap-2 font-medium flex-1 md:flex-none">
                                 <span>View Photos</span>
                                 <i class="fa-solid fa-images text-lg group-hover:scale-110 transition-transform"></i>
@@ -723,75 +907,180 @@
             </div>
         </section>
 
+        <!-- ===== ACHIEVEMENTS SECTION ===== -->
+        <section id="achievements" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Achievements</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Recognition and awards along the way.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="achievement-card glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="50">
+                    <div class="achievement-glow"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-500/10 border-2 border-yellow-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-trophy text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Winner</h3>
+                        <p class="text-sm text-gray-400">Visiotech 2026</p>
+                        <p class="text-xs text-gray-500 mt-1">UI Design using AI</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-glow"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-medal text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Runner-Up</h3>
+                        <p class="text-sm text-gray-400">HackCity 2026</p>
+                        <p class="text-xs text-gray-500 mt-1">CNG & EV Booking System</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="achievement-glow"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500/10 border-2 border-blue-500/30 flex items-center justify-center">
+                            <i class="fa-brands fa-google text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Google Student</h3>
+                        <p class="text-sm text-gray-400">Ambassador 2026</p>
+                        <p class="text-xs text-gray-500 mt-1">Campus Representative</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-glow"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/10 border-2 border-green-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-users-gear text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Team Lead</h3>
+                        <p class="text-sm text-gray-400">A.S.I.A. Core</p>
+                        <p class="text-xs text-gray-500 mt-1">Tech Community Leadership</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS SECTION ===== -->
+        <section id="testimonials" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">What People Say</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Words from teammates and mentors.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div class="testimonial-card glass-card p-8" data-aos="fade-up" data-aos-delay="50">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 relative z-10 pt-6">
+                        "Abhijeet's ability to take charge during Hackspectra 2.0 was remarkable. He architected the entire MediSync backend in under 12 hours while keeping the team aligned and motivated. His calm leadership under pressure made all the difference."
+                    </p>
+                    <div class="flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-user text-cyan-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Hackathon Teammate</p>
+                            <p class="text-xs text-gray-500">Hackspectra 2.0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 relative z-10 pt-6">
+                        "Among the most driven first-year students I've seen. Abhijeet's curiosity and initiative — from winning design competitions to becoming a Google Student Ambassador — set him apart. He doesn't just learn; he builds and ships."
+                    </p>
+                    <div class="flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-graduation-cap text-blue-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Faculty Mentor</p>
+                            <p class="text-xs text-gray-500">MGM College of Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-card p-8" data-aos="fade-up" data-aos-delay="150">
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 relative z-10 pt-6">
+                        "Working with Abhijeet at A.S.I.A. Core has been an incredible experience. He's not just technically skilled — he brings people together, organizes events, and always pushes the team to deliver their best work."
+                    </p>
+                    <div class="flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-users text-purple-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Team Member</p>
+                            <p class="text-xs text-gray-500">A.S.I.A. Core</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CONTACT FOOTER ===== -->
         <footer id="contact" class="py-20 mt-10 border-t border-white/10 text-center">
-            
+
             <div data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect<span class="text-accent">.</span></h2>
                 <p class="text-gray-400 mb-8 max-w-xl mx-auto">Currently looking for new opportunities and exciting hackathons. Hover over the icons below to connect with me.</p>
-                
-                <ul class="social-wrapper flex justify-center flex-wrap">
 
+                <ul class="social-wrapper flex justify-center flex-wrap">
                     <li class="icon phone" onclick="window.location.href='tel:+918605168653'">
                         <span class="tooltip">Call Me</span>
                         <span><i class="fas fa-phone"></i></span>
                     </li>
-
                     <li class="icon email" onclick="window.location.href='mailto:theabhijeetkendre@gmail.com'">
                         <span class="tooltip">Email</span>
                         <span><i class="fas fa-envelope"></i></span>
                     </li>
-
                     <li class="icon college" onclick="window.location.href='mailto:s25_kendre_abhijeet@mgmcen.ac.in'">
                         <span class="tooltip">College Mail</span>
                         <span><i class="fas fa-graduation-cap"></i></span>
                     </li>
-
                     <li class="icon linkedin" onclick="window.open('https://www.linkedin.com/in/abhijeetkendre', '_blank')">
                         <span class="tooltip">LinkedIn</span>
                         <span><i class="fab fa-linkedin-in"></i></span>
                     </li>
-
                     <li class="icon instagram" onclick="window.open('https://www.instagram.com/abhijeetkendre26', '_blank')">
                         <span class="tooltip">Instagram</span>
                         <span><i class="fab fa-instagram"></i></span>
                     </li>
-
+                    <li class="icon github" onclick="window.open('https://github.com/abhijeetkendre-it', '_blank')">
+                        <span class="tooltip">GitHub</span>
+                        <span><i class="fab fa-github"></i></span>
+                    </li>
                 </ul>
             </div>
 
-            <!-- --- CONTACT FORM --- -->
+            <!-- Contact Form -->
             <div class="max-w-2xl mx-auto mt-16 text-left" data-aos="fade-up" data-aos-delay="200">
                 <div class="glass-card p-8 md:p-10 relative overflow-hidden">
-                    <!-- Decorative blur -->
                     <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
                     <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
 
                     <h3 class="text-2xl font-bold mb-6 text-white text-center relative z-10">Send a Message / Feedback</h3>
-                    
+
                     <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5 relative z-10">
-                        <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="7f6263b1-1092-4e52-929f-e46aa9e44116">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <!-- Name -->
                             <div class="relative group">
                                 <i class="fa-regular fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
                                 <input type="text" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" placeholder="Your Name" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
                             </div>
-                            
-                            <!-- Company -->
                             <div class="relative group">
                                 <i class="fa-regular fa-building absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
                                 <input type="text" name="company" placeholder="Company (Optional)" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
                             </div>
                         </div>
 
-                        <!-- Mobile -->
                         <div class="flex gap-3">
                             <div class="relative w-1/3 md:w-1/4 group">
                                 <i class="fa-solid fa-globe absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 text-sm group-focus-within:text-accent transition-colors"></i>
                                 <select name="country_code" id="countrySelect" class="w-full glass-input rounded-lg py-3 pl-8 pr-2 appearance-none cursor-pointer text-sm">
-                                    <!-- Options populated by JavaScript -->
                                 </select>
                             </div>
                             <div class="relative w-2/3 md:w-3/4 group">
@@ -800,28 +1089,23 @@
                             </div>
                         </div>
 
-                        <!-- Email -->
                         <div class="relative group">
                             <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
                             <input type="email" name="email" required placeholder="Email Address" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
                         </div>
 
-                        <!-- Subject -->
                         <div class="relative group">
                             <i class="fa-solid fa-pen absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-accent transition-colors"></i>
                             <input type="text" name="subject" required placeholder="Subject" class="w-full glass-input rounded-lg py-3 pl-12 pr-4">
                         </div>
 
-                        <!-- Message -->
                         <div class="relative group">
                             <i class="fa-regular fa-comment absolute left-4 top-4 text-gray-400 group-focus-within:text-accent transition-colors"></i>
                             <textarea name="message" required rows="4" placeholder="Your Message" class="w-full glass-input rounded-lg py-3 pl-12 pr-4 resize-none"></textarea>
                         </div>
 
-                        <!-- Honeypot Spam Protection -->
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                        <!-- Submit -->
                         <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg py-3 hover:from-blue-600 hover:to-purple-700 transition-all transform hover:-translate-y-1 shadow-[0_5px_15px_rgba(59,130,246,0.4)] flex justify-center items-center gap-2 mt-2">
                             <span>Send Message</span>
                             <i class="fa-regular fa-paper-plane"></i>
@@ -829,11 +1113,11 @@
                     </form>
                 </div>
             </div>
-            
+
             <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 max-w-4xl mx-auto">
                 <p class="font-bold tracking-widest text-white">ABHIJEET KENDRE</p>
                 <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                    <a href="#contact" id="bugReportBtn" class="hover:text-white transition-colors flex items-center gap-2 group tooltip-container" title="Found a bug? Let me know!">
+                    <a href="#contact" id="bugReportBtn" class="hover:text-white transition-colors flex items-center gap-2 group" title="Found a bug? Let me know!">
                         <i class="fa-solid fa-bug text-gray-500 group-hover:text-red-400 transition-colors"></i>
                         <span class="text-xs uppercase tracking-wider font-semibold">Report an Issue</span>
                     </a>
@@ -844,49 +1128,158 @@
 
     </main>
 
+    <!-- ===== DYNAMIC MODAL ===== -->
+    <div id="dynamicModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative w-full max-w-5xl max-h-[90vh] bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="dynamicModalContent">
+            <div class="flex items-center justify-between p-6 border-b border-white/10 shrink-0 bg-black/50 z-10">
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white" id="modalTitle"></h3>
+                    <p class="text-sm text-gray-400 mt-1" id="modalSubtitle"></p>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-10 h-10 flex items-center justify-center shrink-0 ml-4">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-black/20" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
+        // --- AOS INIT ---
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // --- LOADER ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('loaded');
+            }, 600);
         });
+
+        // --- MOBILE MENU ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                } else {
+                    mobileMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+        });
+
+        // --- TYPING EFFECT ---
+        (function() {
+            const roles = [
+                'Full-Stack Developer',
+                'Google Student Ambassador',
+                'AI & Hackathon Enthusiast',
+                'Team Lead at A.S.I.A. Core'
+            ];
+            const el = document.getElementById('typingText');
+            let roleIndex = 0, charIndex = 0, isDeleting = false;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                if (isDeleting) {
+                    el.textContent = currentRole.substring(0, charIndex--);
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        setTimeout(type, 400);
+                        return;
+                    }
+                    setTimeout(type, 30);
+                } else {
+                    el.textContent = currentRole.substring(0, charIndex++);
+                    if (charIndex > currentRole.length) {
+                        isDeleting = true;
+                        setTimeout(type, 2000);
+                        return;
+                    }
+                    setTimeout(type, 60);
+                }
+            }
+            setTimeout(type, 800);
+        })();
+
+        // --- COUNTER ANIMATION ---
+        (function() {
+            const counters = document.querySelectorAll('.stat-number[data-target]');
+            const observed = new Set();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !observed.has(entry.target)) {
+                        observed.add(entry.target);
+                        const el = entry.target;
+                        const target = parseInt(el.dataset.target);
+                        const label = el.dataset.label;
+
+                        if (label) {
+                            // Non-numeric stat (GSA, Lead)
+                            el.textContent = label;
+                            return;
+                        }
+
+                        let current = 0;
+                        const increment = target / 40;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                el.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = Math.floor(current) + '+';
+                            }
+                        }, 40);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(c => observer.observe(c));
+        })();
 
         // --- VISITOR NOTIFICATION TRACKING ---
         document.addEventListener('DOMContentLoaded', () => {
             if (!sessionStorage.getItem('notifiedVisit')) {
-                // Fetch rich IP and location data
                 fetch('https://get.geojs.io/v1/ip/geo.json')
                     .then(response => response.json())
                     .then(data => {
                         const now = new Date();
-                        
                         const formData = new FormData();
                         formData.append('access_key', '70583505-c87e-41ac-9722-569e1cc3799a');
                         formData.append('subject', 'New Portfolio Visitor!');
-                        
-                        // Basic Info
                         formData.append('Date & Time', now.toLocaleString());
                         formData.append('IP Address', data.ip || 'Unknown');
-                        
-                        // Location Info
                         formData.append('City', data.city || 'Unknown');
                         formData.append('Region', data.region || 'Unknown');
                         formData.append('Country', data.country || 'Unknown');
                         formData.append('Organization/ISP', data.organization_name || 'Unknown');
-                        
-                        // Device & Browser Info
                         formData.append('Browser/OS (User Agent)', navigator.userAgent);
                         formData.append('Screen Resolution', `${window.screen.width}x${window.screen.height}`);
                         formData.append('Language', navigator.language);
-                        
-                        // Traffic Source
                         formData.append('Referrer', document.referrer || 'Direct / None');
                         formData.append('Current Page', window.location.href);
-                        
+
                         fetch('https://api.web3forms.com/submit', {
-                            method: 'POST',
-                            body: formData
+                            method: 'POST', body: formData
                         }).then(() => {
                             sessionStorage.setItem('notifiedVisit', 'true');
                         }).catch(console.error);
@@ -895,7 +1288,7 @@
             }
         });
 
-        // --- DYNAMIC FORM LOGIC ---
+        // --- CONTACT FORM LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
             const phoneInput = document.getElementById('phoneInput');
             const countrySelect = document.getElementById('countrySelect');
@@ -967,94 +1360,75 @@
                 { code: "+972", country: "IL", min: 9, max: 9 },
                 { code: "+973", country: "BH", min: 8, max: 8 },
                 { code: "+974", country: "QA", min: 8, max: 8 },
-                { code: "+00", country: "Other", min: 6, max: 15 } // Generic fallback
+                { code: "+00", country: "Other", min: 6, max: 15 }
             ];
 
-            // Sort ascending by numerical code
             countryData.sort((a, b) => {
                 let numA = parseInt(a.code.replace('+', ''));
                 let numB = parseInt(b.code.replace('+', ''));
-                if(numA === 0) return 1; // Put 'Other' at the bottom
-                if(numB === 0) return -1;
+                if (numA === 0) return 1;
+                if (numB === 0) return -1;
                 return numA - numB;
             });
 
-            // Populate the dropdown
             countrySelect.innerHTML = '';
             countryData.forEach(data => {
                 const option = document.createElement('option');
                 option.value = data.code;
                 option.textContent = `${data.code} (${data.country})`;
-                if (data.code === "+91") {
-                    option.selected = true; // Default select India
-                }
+                if (data.code === "+91") option.selected = true;
                 option.dataset.min = data.min;
                 option.dataset.max = data.max;
                 countrySelect.appendChild(option);
             });
 
-            // Update Validation rules when country changes
             function updateValidation() {
                 const selectedOption = countrySelect.options[countrySelect.selectedIndex];
                 const min = selectedOption.dataset.min;
                 const max = selectedOption.dataset.max;
-                
                 if (min === max) {
                     phoneInput.pattern = `[0-9]{${min}}`;
                     phoneInput.title = `Must be exactly ${min} digits for this country code`;
-                    phoneInput.setAttribute('maxlength', max);
-                    phoneInput.setAttribute('minlength', min);
                 } else {
                     phoneInput.pattern = `[0-9]{${min},${max}}`;
                     phoneInput.title = `Must be between ${min} and ${max} digits for this country code`;
-                    phoneInput.setAttribute('maxlength', max);
-                    phoneInput.setAttribute('minlength', min);
                 }
+                phoneInput.setAttribute('maxlength', max);
+                phoneInput.setAttribute('minlength', min);
             }
 
             countrySelect.addEventListener('change', updateValidation);
-            updateValidation(); // Run on initial load
-            
-            // Strictly prevent typing anything other than numbers
-            phoneInput.addEventListener('input', function(e) {
+            updateValidation();
+
+            phoneInput.addEventListener('input', function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
             });
 
-            // Handle Form Submission via AJAX to prevent redirect
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
                     const submitBtn = contactForm.querySelector('button[type="submit"]');
                     const originalBtnText = submitBtn.innerHTML;
-                    
-                    // Show loading state
                     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span class="ml-2">Sending...</span>';
                     submitBtn.disabled = true;
                     submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
                     const formData = new FormData(contactForm);
-                    
-                    fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            window.location.href = '/success';
-                        } else {
-                            console.error('Error:', data);
+                    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                window.location.href = '/success';
+                            } else {
+                                alert('Something went wrong. Please try again.');
+                                resetButton(submitBtn, originalBtnText);
+                            }
+                        })
+                        .catch(() => {
                             alert('Something went wrong. Please try again.');
                             resetButton(submitBtn, originalBtnText);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Something went wrong. Please try again.');
-                        resetButton(submitBtn, originalBtnText);
-                    });
+                        });
                 });
 
                 function resetButton(btn, text) {
@@ -1071,15 +1445,21 @@
                 title: 'Google Student Ambassador 2026',
                 subtitle: 'Campus Representative · May 2026 - Present',
                 gallery: [
-                    { src: 'photos/Google Student Ambassador copy/01 (1).png', alt: 'GSA Photo 1' },
-                    { src: 'photos/Google Student Ambassador copy/02 (1).png', alt: 'GSA Photo 2' },
-                    { src: 'photos/Google Student Ambassador copy/03 (1).png', alt: 'GSA Photo 3' },
-                    { src: 'photos/Google Student Ambassador copy/04 (1).png', alt: 'GSA Photo 4' },
-                    { src: 'photos/Google Student Ambassador copy/06 (10).png', alt: 'GSA Photo 6' },
-                    { src: 'photos/Google Student Ambassador copy/08.png', alt: 'GSA Photo 8' },
-                    { src: 'photos/Google Student Ambassador copy/10.png', alt: 'GSA Photo 10' }
+                    { src: 'photos/Google Student Ambassador copy/GSA.png', alt: 'Google Student Ambassador' },
+                    { src: 'photos/Google Student Ambassador copy/Gemini Sparkle.png', alt: 'Gemini Sparkle' }
                 ],
-                certificate: null
+                certificate: null,
+                casestudy: {
+                    problem: 'Bridging the gap between Google\'s cutting-edge technologies and the student developer community at M.G.M.\'s College of Engineering, Nanded.',
+                    features: [
+                        'Organizing technical workshops on Google Cloud, Firebase, and Gemini AI',
+                        'Building a vibrant local developer community on campus',
+                        'Connecting students with Google programs, resources, and certifications',
+                        'Hosting hackathons and coding competitions to foster innovation'
+                    ],
+                    challenges: 'Creating engagement from scratch and building a culture of technical learning in a diverse student body with varying skill levels.',
+                    learnings: 'Developed leadership, event management, and public speaking skills. Learned how to communicate complex technical concepts to diverse audiences and motivate a community.'
+                }
             },
             'visiotech-ui': {
                 title: 'Visiotech 2026 – UI Design using AI',
@@ -1087,7 +1467,18 @@
                 gallery: [
                     { src: 'photos/UI Design Using AI/UI Design Using AI.jpg', alt: 'UI Design Using AI – Event Photo' }
                 ],
-                certificate: 'photos/UI Design Using AI/UI Design using AI - Cerificate.png'
+                certificate: 'photos/UI Design Using AI/UI Design using AI - Cerificate.png',
+                casestudy: {
+                    problem: 'Design a modern, user-focused UI interface using AI-powered tools within a limited time, competing against other teams on creativity and usability.',
+                    features: [
+                        'Rapid prototyping using AI design tools',
+                        'Modern glassmorphism and dark-mode aesthetic',
+                        'Responsive layouts with intuitive user flows',
+                        'Strong visual hierarchy and micro-interactions'
+                    ],
+                    challenges: 'Balancing AI-generated designs with manual refinement to achieve a polished, unique look under tight competition deadlines.',
+                    learnings: 'Mastered AI-assisted design workflows and learned how to rapidly iterate on UI concepts while maintaining design consistency and usability standards.'
+                }
             },
             'visiotech-pres': {
                 title: 'Visiotech 2026 – Project Presentation',
@@ -1098,7 +1489,19 @@
                     { src: 'photos/Project Presentation/Project Presentation - photo2.jpg', alt: 'Project Presentation Photo 3' },
                     { src: 'photos/Project Presentation/Project Presentation - photo3.jpg', alt: 'Project Presentation Photo 4' }
                 ],
-                certificate: 'photos/Project Presentation/Project Presentation - Certificate.png'
+                certificate: 'photos/Project Presentation/Project Presentation - Certificate.png',
+                casestudy: {
+                    problem: 'Patients and healthcare providers lack a unified platform for real-time health monitoring, appointment management, and AI-powered medical insights.',
+                    features: [
+                        'Real-time patient health monitoring dashboard',
+                        'Intelligent appointment scheduling and management',
+                        'Gemini AI integration for medical data analysis and insights',
+                        'Secure authentication using JWT tokens',
+                        'Responsive design deployed on Vercel'
+                    ],
+                    challenges: 'Integrating Gemini AI for healthcare data extraction while maintaining HIPAA-aware data handling and building a full-stack application for live demonstration.',
+                    learnings: 'Gained experience in presenting complex technical projects to judges, defending architectural decisions, and articulating the business value of an AI-powered solution.'
+                }
             },
             'hackspectra': {
                 title: 'Hackspectra 2.0 – MediSync',
@@ -1108,7 +1511,19 @@
                     { src: 'photos/Hackspectra 2.0/Hackspetra - photo 2.jpg', alt: 'Hackspectra Photo 2' },
                     { src: 'photos/Hackspectra 2.0/Hacksptra - photo 3.jpg', alt: 'Hackspectra Photo 3' }
                 ],
-                certificate: 'photos/Hackspectra 2.0/Hackspetra Certificate.jpg'
+                certificate: 'photos/Hackspectra 2.0/Hackspetra Certificate.jpg',
+                casestudy: {
+                    problem: 'Healthcare systems often suffer from fragmented data, inefficient appointment management, and lack of real-time patient monitoring — leading to delays in critical care.',
+                    features: [
+                        'AI-powered health data analysis using Gemini API',
+                        'Real-time patient monitoring with live dashboards',
+                        'Smart appointment scheduling with automated reminders',
+                        'Secure role-based access (Doctor, Patient, Admin) via JWT',
+                        'Firebase Firestore for real-time data synchronization'
+                    ],
+                    challenges: 'Building a production-quality full-stack application in just 24 hours while integrating multiple APIs (Gemini AI, Firebase) and ensuring secure authentication flows.',
+                    learnings: 'Sharpened ability to architect and ship a complete application under extreme time pressure. Deepened understanding of AI API integration and real-time database patterns.'
+                }
             },
             'aibootcamp': {
                 title: 'Artificial Intelligence Bootcamp',
@@ -1118,18 +1533,41 @@
                     { src: 'photos/AI Bootcamp 2026/AI Bootcamp - photo1.JPG', alt: 'AI Bootcamp Photo 2' },
                     { src: 'photos/AI Bootcamp 2026/AI Bootcamp - photo2.JPG', alt: 'AI Bootcamp Photo 3' }
                 ],
-                certificate: 'photos/AI Bootcamp 2026/AI Bootcamp Certificate.jpg'
+                certificate: 'photos/AI Bootcamp 2026/AI Bootcamp Certificate.jpg',
+                casestudy: {
+                    problem: 'Most students have theoretical knowledge of AI but lack practical, hands-on experience with modern AI tools and APIs.',
+                    features: [
+                        'Hands-on sessions with generative AI tools',
+                        'Prompt engineering techniques and best practices',
+                        'Building AI-integrated applications',
+                        'Understanding AI ethics and responsible deployment'
+                    ],
+                    challenges: 'Transitioning from theoretical AI concepts to practical implementation and understanding the limitations of generative AI models.',
+                    learnings: 'Gained foundational knowledge in AI tool integration, prompt engineering, and the practical applications of generative AI in real-world software development.'
+                }
             },
             'hackcity': {
-                title: 'HackCity 2026 Gallery',
-                subtitle: 'Runner-Up · CNG & EV Booking System',
+                title: 'HackCity 2026 – CNG & EV Booking',
+                subtitle: 'Runner-Up · 29th January 2026',
                 gallery: [
                     { src: 'photos/HackCity 2026 Gallary/hackcity-trophy.jpg', alt: 'HackCity Trophy' },
-                    { src: 'photos/HackCity 2026 Gallary/hackcity-photo.jpg', alt: 'HackCity Photo 1' },
+                    { src: 'photos/HackCity 2026 Gallary/hackcity-photo.jpg', alt: 'HackCity Team Photo' },
                     { src: 'photos/HackCity 2026 Gallary/hackcity-photo2.jpg', alt: 'HackCity App Screenshot' },
                     { src: 'photos/HackCity 2026 Gallary/hackcity-photo1.jpg', alt: 'HackCity Award Ceremony' }
                 ],
-                certificate: null
+                certificate: null,
+                casestudy: {
+                    problem: 'CNG and EV users waste significant time waiting at fueling/charging stations due to lack of real-time slot availability and booking systems.',
+                    features: [
+                        'Real-time slot reservation for CNG and EV stations',
+                        'Google Maps API integration for station geolocation',
+                        'Station owner management dashboard',
+                        'Dynamic pricing and availability tracking',
+                        'User-friendly booking interface with confirmation system'
+                    ],
+                    challenges: 'Integrating Google Maps API for real-time geolocation, building a dual-role system (users and station owners), and managing concurrent bookings with PHP and MySQL.',
+                    learnings: 'First hackathon experience — learned the importance of rapid prototyping, teamwork under pressure, and presenting solutions to a panel of judges. Validated that I could build full-stack applications competitively.'
+                }
             }
         };
 
@@ -1167,6 +1605,53 @@
                         </a>
                     </div>`;
                 }
+            } else if (type === 'casestudy' && data.casestudy) {
+                const cs = data.casestudy;
+                bodyEl.innerHTML = `
+                    <div class="space-y-8 max-w-3xl mx-auto">
+                        <div>
+                            <h4 class="text-sm font-semibold uppercase tracking-widest text-accent mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-crosshairs"></i> Problem Statement
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">${cs.problem}</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold uppercase tracking-widest text-green-400 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check"></i> Key Features
+                            </h4>
+                            <ul class="space-y-2">
+                                ${cs.features.map(f => `
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <i class="fa-solid fa-check text-green-400 mt-1 shrink-0"></i>
+                                        <span>${f}</span>
+                                    </li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold uppercase tracking-widest text-yellow-400 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-mountain"></i> Challenges
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">${cs.challenges}</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold uppercase tracking-widest text-purple-400 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-lightbulb"></i> What I Learned
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">${cs.learnings}</p>
+                        </div>
+                        ${data.gallery.length > 0 ? `
+                        <div class="pt-4 border-t border-white/5">
+                            <h4 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-images"></i> Gallery
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                ${data.gallery.map(img => `
+                                    <div class="rounded-xl overflow-hidden border border-white/5 bg-black/50">
+                                        <img src="${img.src}" alt="${img.alt}" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                                    </div>`).join('')}
+                            </div>
+                        </div>` : ''}
+                    </div>`;
             }
 
             modal.classList.remove('hidden');
@@ -1190,44 +1675,19 @@
             }, 300);
         }
 
-        // Close on Escape key
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
         // --- BUG REPORT LOGIC ---
         const bugReportBtn = document.getElementById('bugReportBtn');
         if (bugReportBtn) {
-            bugReportBtn.addEventListener('click', function(e) {
+            bugReportBtn.addEventListener('click', function() {
                 const subjectInput = document.querySelector('input[name="subject"]');
                 const messageInput = document.querySelector('textarea[name="message"]');
-                if (subjectInput) {
-                    subjectInput.value = "Bug Report - ";
-                }
-                if (messageInput) {
-                    setTimeout(() => messageInput.focus(), 800);
-                }
+                if (subjectInput) subjectInput.value = "Bug Report - ";
+                if (messageInput) setTimeout(() => messageInput.focus(), 800);
             });
         }
     </script>
 
-    <!-- Dynamic Modal -->
-    <div id="dynamicModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
-        <div class="relative w-full max-w-5xl max-h-[90vh] bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="dynamicModalContent">
-            <!-- Header -->
-            <div class="flex items-center justify-between p-6 border-b border-white/10 shrink-0 bg-black/50 z-10">
-                <div>
-                    <h3 class="text-xl md:text-2xl font-bold text-white" id="modalTitle"></h3>
-                    <p class="text-sm text-gray-400 mt-1" id="modalSubtitle"></p>
-                </div>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full w-10 h-10 flex items-center justify-center shrink-0 ml-4">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-            <!-- Body -->
-            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-black/20" id="modalBody"></div>
-        </div>
-    </div>
 </body>
 </html>
-
-<!-- Trigger Vercel Rebuild -->
